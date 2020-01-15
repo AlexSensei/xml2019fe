@@ -5,9 +5,10 @@ import PropTypes from 'prop-types';
 import { TextInputWithLabel } from '../shared/formFields/TextInputWithLabel';
 import { signInValidationRules } from '../../validation/auth';
 import { PasswordInputWithLabel } from '../shared/formFields/PasswordInputWithLabel';
+import LoaderWrapper from '../shared/LoaderWrapper';
 
-const SignInForm = ({ handleSignIn, signInError }) => (
-  <main>
+const SignInForm = ({ handleSignIn, signInError, loader }) => (
+  <LoaderWrapper isLoading={loader} loadingText="Signing in ...">
     <Formik
       initialValues={{ email: '', password: '' }}
       validationSchema={signInValidationRules}
@@ -44,7 +45,7 @@ const SignInForm = ({ handleSignIn, signInError }) => (
       You dont have an account?
       <a href="/sign-up">Sign up</a>
     </div>
-  </main>
+  </LoaderWrapper>
 );
 
 SignInForm.propTypes = {

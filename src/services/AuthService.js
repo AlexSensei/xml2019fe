@@ -36,13 +36,19 @@ class AuthService extends BaseApiService {
   };
 
   signUp = async signUpData => {
-    const { data } = await this.apiClient.post(ENDPOINTS.SIGN_UP, signUpData);
+    // const { data } = await this.apiClient.post(ENDPOINTS.SIGN_UP, signUpData);
 
-    this.createSession(data);
+    // this.createSession(data);
 
-    this.attachAuthHeader(data.access_token);
+    // this.attachAuthHeader(data.access_token);
 
-    return data;
+    // return data;
+
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        Math.random() > 0.5 ? resolve() : reject('Error');
+      }, 1500);
+    });
   };
 
   logout = () => {

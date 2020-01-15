@@ -19,9 +19,11 @@ const SignIn = () => {
 
   return (
     <div>
-      <LoaderWrapper isLoading={signInLoader} loadingText="Signing in ...">
-        <SignInForm handleSignIn={handleSignIn} signInError={signInError} />
-      </LoaderWrapper>
+      <SignInForm
+        handleSignIn={handleSignIn}
+        signInError={signInError}
+        loader={signInLoader}
+      />
     </div>
   );
 };

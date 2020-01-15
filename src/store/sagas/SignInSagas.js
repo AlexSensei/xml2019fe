@@ -1,7 +1,7 @@
 import { put, call } from 'redux-saga/effects';
 
 import { signInLoaderSet, signInErrorSet } from '../actions/SignInActions';
-import AuthService from '../../services.js/AuthService';
+import AuthService from '../../services/AuthService';
 
 export function* handleSignIn({ payload }) {
   try {

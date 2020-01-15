@@ -23,5 +23,6 @@ export const signUpValidationRules = Yup.object().shape({
       PASSWORD_LENGTH,
       `Password must be  ${PASSWORD_LENGTH} characters long`
     ),
-  fullName: Yup.string().required('Full name is required')
+  firstName: Yup.string().required('First name is required'),
+  lastName: Yup.string().required('Last name is required')
 });
