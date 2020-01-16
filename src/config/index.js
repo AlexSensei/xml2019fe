@@ -1,3 +1,3 @@
 export default {
-  API_BASE_URL: 'localhost:8000'
+  API_BASE_URL: 'http://localhost:8000'
 };

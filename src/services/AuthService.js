@@ -30,7 +30,11 @@ class AuthService extends BaseApiService {
   };
 
   signUp = async signUpData => {
-    const { data } = await this.apiClient.post(ENDPOINTS.SIGN_UP, signUpData);
+    const { data } = await this.apiClient.post(ENDPOINTS.SIGN_UP, {
+      ...signUpData,
+      first_name: signUpData.firstName,
+      last_name: signUpData.lastName
+    });
 
     this.createSession(data);
 
