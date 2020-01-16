@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { makeSelectUserAuth } from '../store/selectors/UserSelectors';
 import { userLogout } from '../store/actions/UserActions';
+import { Link } from 'gatsby';
+import HeaderOptions from './headerOptions';
+import { USER_TYPES } from '../constants/userTypes';
 
 const Header = ({ siteTitle }) => {
   const dispatch = useDispatch();
@@ -10,6 +13,20 @@ const Header = ({ siteTitle }) => {
   const auth = useSelector(makeSelectUserAuth());
 
   const handleLogout = () => dispatch(userLogout());
+
+  const getUserType = () => {
+    if (!auth) {
+      return USER_TYPES.ANNONYMOUSE;
+    }
+    return USER_TYPES.WRITER;
+  };
+
+  const renderAuthUserContent = () => (
+    <div>
+      <p style={{ color: 'white', textColor: 'white' }}>User</p>
+      <button onClick={handleLogout}>Logout</button>
+    </div>
+  );
 
   return (
     <header
@@ -29,7 +46,8 @@ const Header = ({ siteTitle }) => {
       >
         <h1 style={{ margin: 0 }}>{siteTitle}</h1>
       </div>
-      {auth && <button onClick={handleLogout}>Logout</button>}
+      <HeaderOptions type={getUserType()}></HeaderOptions>
+      {auth ? renderAuthUserContent() : <Link to="/sign-in">Sign in</Link>}
     </header>
   );
 };
