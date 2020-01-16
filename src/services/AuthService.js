@@ -1,9 +1,9 @@
 import BaseApiService from './BaseApiService';
 
 const ENDPOINTS = {
-  SIGN_IN: '/sign-in',
-  SIGN_UP: '/sign-up',
-  LOGOUT: '/logout'
+  SIGN_IN: '/api/auth/login',
+  SIGN_UP: '/api/auth/register',
+  LOGOUT: 'api/auth/logout'
 };
 
 class AuthService extends BaseApiService {
@@ -20,35 +20,23 @@ class AuthService extends BaseApiService {
   }
 
   login = async loginData => {
-    // const { data } = await this.apiClient.post(ENDPOINTS.SIGN_IN, loginData);
+    const { data } = await this.apiClient.post(ENDPOINTS.SIGN_IN, loginData);
 
-    // this.createSession(data);
+    this.createSession(data);
 
-    // this.attachAuthHeader(data.access_token);
+    this.attachAuthHeader(data.access_token);
 
-    // return data;
-
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        Math.random() > 0.5 ? resolve() : reject('Error');
-      }, 1500);
-    });
+    return data;
   };
 
   signUp = async signUpData => {
-    // const { data } = await this.apiClient.post(ENDPOINTS.SIGN_UP, signUpData);
+    const { data } = await this.apiClient.post(ENDPOINTS.SIGN_UP, signUpData);
 
-    // this.createSession(data);
+    this.createSession(data);
 
-    // this.attachAuthHeader(data.access_token);
+    this.attachAuthHeader(data.access_token);
 
-    // return data;
-
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        Math.random() > 0.5 ? resolve() : reject('Error');
-      }, 1500);
-    });
+    return data;
   };
 
   logout = () => {

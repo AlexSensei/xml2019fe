@@ -7,6 +7,7 @@ import {
   makeSelectSignUpLoader,
   makeSelectSignUpError
 } from '../store/selectors/SignUpSelectors';
+import withIsAuth from '../utils/hoc/withIsAuth';
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -27,4 +28,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default withIsAuth(SignUp);

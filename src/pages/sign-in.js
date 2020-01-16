@@ -8,6 +8,7 @@ import {
 } from '../store/selectors/SignInSelectors';
 import { signIn } from '../store/actions/SignInActions';
 import LoaderWrapper from '../components/shared/LoaderWrapper';
+import withIsAuth from '../utils/hoc/withIsAuth';
 
 const SignIn = () => {
   const dispatch = useDispatch();
@@ -28,4 +29,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default withIsAuth(SignIn);
