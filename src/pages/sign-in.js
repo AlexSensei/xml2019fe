@@ -7,8 +7,8 @@ import {
   makeSelectSignInLoader
 } from '../store/selectors/SignInSelectors';
 import { signIn } from '../store/actions/SignInActions';
-import LoaderWrapper from '../components/shared/LoaderWrapper';
 import withIsAuth from '../utils/hoc/withIsAuth';
+import Layout from '../components/layout';
 
 const SignIn = () => {
   const dispatch = useDispatch();
@@ -19,13 +19,13 @@ const SignIn = () => {
   const handleSignIn = data => dispatch(signIn(data));
 
   return (
-    <div>
+    <Layout>
       <SignInForm
         handleSignIn={handleSignIn}
         signInError={signInError}
         loader={signInLoader}
       />
-    </div>
+    </Layout>
   );
 };
 

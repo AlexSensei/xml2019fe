@@ -8,6 +8,7 @@ import {
   makeSelectSignUpError
 } from '../store/selectors/SignUpSelectors';
 import withIsAuth from '../utils/hoc/withIsAuth';
+import Layout from '../components/layout';
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -18,13 +19,13 @@ const SignUp = () => {
   const handleSignUp = data => dispatch(signUp(data));
 
   return (
-    <div>
+    <Layout>
       <SignUpForm
         handleSignUp={handleSignUp}
         loader={signUpLoader}
         signUpError={signUpErrors}
       />
-    </div>
+    </Layout>
   );
 };
 

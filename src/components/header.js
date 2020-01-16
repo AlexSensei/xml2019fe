@@ -1,42 +1,37 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
+import { makeSelectUserAuth } from '../store/selectors/UserSelectors';
+import { userLogout } from '../store/actions/UserActions';
+
+const Header = ({ siteTitle }) => {
+  const dispatch = useDispatch();
+
+  const auth = useSelector(makeSelectUserAuth());
+
+  const handleLogout = () => dispatch(userLogout());
+
+  return (
+    <header
       style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
+        background: `rebeccapurple`,
+        marginBottom: `1.45rem`,
+        display: 'flex',
+        displayDirect: 'row'
       }}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+      <div
+        style={{
+          margin: `0 auto`,
+          maxWidth: 960,
+          padding: `1.45rem 1.0875rem`
+        }}
+      >
+        <h1 style={{ margin: 0 }}>{siteTitle}</h1>
+      </div>
+      {auth && <button onClick={handleLogout}>Logout</button>}
+    </header>
+  );
+};
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
-export default Header
+export default Header;
