@@ -12,7 +12,7 @@ const HeaderOptions = ({ type }) => {
   const renderWriterOptions = () => (
     <>
       <Link to="/">Works</Link>
-      <Link to="/">Add Work</Link>
+      <Link to="/publish">Publish article</Link>
     </>
   );
 

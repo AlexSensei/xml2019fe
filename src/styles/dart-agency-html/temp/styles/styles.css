@@ -1,6 +1,11 @@
 a {
   color: white;
 }
+button {
+  color: white;
+  background-color: purple;
+  border: 0;
+}
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
