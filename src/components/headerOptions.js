@@ -5,14 +5,14 @@ import { Link } from 'gatsby';
 const HeaderOptions = ({ type }) => {
   const renderAnonymouseOptions = () => (
     <>
-      <Link>Works</Link>
+      <Link to="/">Works</Link>
     </>
   );
 
   const renderWriterOptions = () => (
     <>
-      <Link>Works</Link>
-      <Link>Add Work</Link>
+      <Link to="/">Works</Link>
+      <Link to="/">Add Work</Link>
     </>
   );
 
@@ -20,12 +20,14 @@ const HeaderOptions = ({ type }) => {
     switch (type) {
       case USER_TYPES.ANNONYMOUSE:
         return renderAnonymouseOptions();
-      case USER_TYPES.WRITER:
+      case USER_TYPES.AUTHOR:
         return renderWriterOptions();
+      default:
+        return <div></div>;
     }
   };
 
-  return <div>{renderUserOptions()}</div>;
+  return renderUserOptions();
 };
 
 export default HeaderOptions;

@@ -10,5 +10,8 @@ const makeSelectUser = () =>
 const makeSelectUserAuth = () =>
   createSelector(selectUserDomain, substate => substate.auth);
 
+const makeSelectUserData = () =>
+  createSelector(selectUserDomain, substate => substate.user);
+
 export default makeSelectUser;
-export { selectUserDomain, makeSelectUserAuth };
+export { selectUserDomain, makeSelectUserAuth, makeSelectUserData };

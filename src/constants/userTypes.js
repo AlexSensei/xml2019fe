@@ -1,4 +1,4 @@
 export const USER_TYPES = {
   ANNONYMOUSE: 'ANNONYMOUSE',
-  WRITER: 'WRITER'
+  AUTHOR: 'author'
 };
