@@ -1,21 +1,20 @@
 import BaseApiService from './BaseApiService';
 
 const ENDPOINTS = {
-  SUBMIT: '/api/auth/me'
+  ARTICLES: '/api/articles',
+  MY_ARTICLES: '/api/articles'
 };
 
 class ArticleService extends BaseApiService {
   submitArticle = data => {
-    // const formData = new FormData();
-    // formData.append('article', data.article[0]);
-    // formData.append('coverLetter', data.coverLetter[0]);
-    // return this.apiClient.post(ENDPOINTS.ME, formData);
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        Math.random() > 0.5 ? resolve() : reject('Error');
-      }, 1500);
-    });
+    const formData = new FormData();
+    formData.append('article', data.article[0]);
+    formData.append('coverLetter', data.coverLetter[0]);
+
+    return this.apiClient.post(ENDPOINTS.ARTICLES, formData);
   };
+
+  getMyArticles = () => this.apiClient.get(ENDPOINTS.MY_ARTICLES);
 }
 
 export default new ArticleService();

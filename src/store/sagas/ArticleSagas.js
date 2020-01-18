@@ -7,7 +7,7 @@ export function* handleArticlePublish({ payload }) {
   try {
     yield put(articlePublishLoaderSet(true));
     yield call(ArticleService.submitArticle, payload);
-    window.location.href = '/';
+    // window.location.href = '/';
   } catch (error) {
     console.log(error);
   } finally {
