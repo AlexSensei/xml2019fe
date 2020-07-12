@@ -12,6 +12,7 @@ import {
   ARTICLES_MY_GET,
   ARTICLE_GET,
   ARTICLES_TO_REVIEW_GET,
+  ARTICLES_PENDING_GET,
 } from "../actionTypes/ArticleActionTypes";
 import {
   handleArticlePublish,
@@ -19,6 +20,7 @@ import {
   handleArticlesMyGet,
   handleArticleGet,
   handleArticlesReviewGet,
+  handleArticlesPendingGet,
 } from "./ArticleSagas";
 
 export default function* rootSaga() {
@@ -32,5 +34,6 @@ export default function* rootSaga() {
     takeLatest(ARTICLES_MY_GET, handleArticlesMyGet),
     takeLatest(ARTICLE_GET, handleArticleGet),
     takeLatest(ARTICLES_TO_REVIEW_GET, handleArticlesReviewGet),
+    takeLatest(ARTICLES_PENDING_GET, handleArticlesPendingGet),
   ]);
 }

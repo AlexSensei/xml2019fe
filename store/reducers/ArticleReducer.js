@@ -6,6 +6,7 @@ import {
   ARTICLES_MY_SET,
   ARTICLE_SET,
   ARTICLES_TO_REVIEW_SEt,
+  ARTICLES_PENDING_SET,
 } from "../actionTypes/ArticleActionTypes";
 
 export const initialState = {
@@ -14,6 +15,7 @@ export const initialState = {
   myArticles: [],
   article: {},
   reviewArticles: [],
+  pendingArticles: [],
 };
 
 /* eslint-disable default-case, no-param-reassign */
@@ -34,6 +36,9 @@ const articleReducer = (state = initialState, action) =>
         break;
       case ARTICLES_TO_REVIEW_SEt:
         draft.reviewArticles = action.payload;
+        break;
+      case ARTICLES_PENDING_SET:
+        draft.pendingArticles = action.payload;
         break;
     }
   });

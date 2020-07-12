@@ -1,13 +1,17 @@
 import React from "react";
 import Link from "next/link";
 
-const ArticleItem = ({ item, myArticle, review }) => (
+const ArticleItem = ({ item, myArticle, review, pending }) => (
   <tr style={wrapperStyle}>
     <p>{item.id}</p>
     <Link
-      href={`/article/${item.id}${
+      as={`/article/${item.id}${
         myArticle ? `?myArticle=true&status=${item.status}` : ""
-      }${review ? "?review=true" : ""}`}
+      }${review ? "?review=true" : ""}${pending ? "?pending=true" : ""}
+      `}
+      href={`/article/[id]${
+        myArticle ? `?myArticle=true&status=${item.status}` : ""
+      }${review ? "?review=true" : ""}${pending ? "?pending=true" : ""}`}
     >
       <p>{item.article}</p>
     </Link>

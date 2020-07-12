@@ -7,6 +7,7 @@ import {
   articlesMySet,
   articleSet,
   articlesReviewSet,
+  articlesPendingSet,
 } from "../actions/ArticleActions";
 
 export function* handleArticlePublish({ payload }) {
@@ -52,6 +53,15 @@ export function* handleArticlesReviewGet({ payload }) {
   try {
     const { data } = yield call(ArticleService.getReviewArticles, payload);
     yield put(articlesReviewSet(data));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export function* handleArticlesPendingGet({ payload }) {
+  try {
+    const { data } = yield call(ArticleService.getPendingArticles, payload);
+    yield put(articlesPendingSet(data));
   } catch (error) {
     console.log(error);
   }

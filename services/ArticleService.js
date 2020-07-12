@@ -4,6 +4,7 @@ import {
   AUTHOR_ARTICLES_STATUSES,
   ARTICLE,
   REVIEW_ARTICLES,
+  PENDING_ARTICLES,
 } from "../mockData.js/articles";
 
 const ENDPOINTS = {
@@ -34,6 +35,10 @@ class ArticleService extends BaseApiService {
 
   getReviewArticles = () => ({
     data: REVIEW_ARTICLES,
+  });
+
+  getPendingArticles = () => ({
+    data: PENDING_ARTICLES,
   });
 }
 
