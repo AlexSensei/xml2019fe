@@ -16,7 +16,7 @@ FROM node:10-alpine
 
 EXPOSE 3000
 WORKDIR /app
-CMD ["yarn", "run", "server"]
+CMD ["yarn", "dev"]
 
 ARG NODE_ENV=production
 ENV NODE_ENV=$NODE_ENV PORT=3000
