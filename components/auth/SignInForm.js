@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import { Formik, Field } from 'formik';
-import PropTypes from 'prop-types';
+import React, { useState } from "react";
+import { Formik, Field } from "formik";
+import PropTypes from "prop-types";
 
-import { TextInputWithLabel } from '../shared/formFields/TextInputWithLabel';
-import { signInValidationRules } from '../../validation/auth';
-import { PasswordInputWithLabel } from '../shared/formFields/PasswordInputWithLabel';
-import LoaderWrapper from '../shared/LoaderWrapper';
+import { TextInputWithLabel } from "../shared/formFields/TextInputWithLabel";
+import { signInValidationRules } from "../../validation/auth";
+import { PasswordInputWithLabel } from "../shared/formFields/PasswordInputWithLabel";
+import LoaderWrapper from "../shared/LoaderWrapper";
 
 const SignInForm = ({ handleSignIn, signInError, loader }) => {
-  const [userType, setUserType] = useState('author');
+  const [userType, setUserType] = useState("author");
   return (
     <LoaderWrapper isLoading={loader} loadingText="Signing in ...">
       <Formik
-        initialValues={{ email: '', password: '' }}
+        initialValues={{ email: "", password: "" }}
         validationSchema={signInValidationRules}
-        onSubmit={values => handleSignIn({ ...values, userType })}
+        onSubmit={(values) => handleSignIn({ ...values, userType })}
       >
         {({ handleSubmit }) => (
           <form onSubmit={handleSubmit}>
@@ -36,18 +36,18 @@ const SignInForm = ({ handleSignIn, signInError, loader }) => {
 
             {signInError && <p>Invalid credentials</p>}
 
-            <button onClick={() => setUserType('author')} type="submit">
+            <button type="button" onClick={() => setUserType("author")}>
               autor
             </button>
-            <button onClick={() => setUserType('reviewer')} type="submit">
+            <button type="button" onClick={() => setUserType("reviewer")}>
               reviewer
             </button>
-            <button onClick={() => setUserType('publisher')} type="submit">
+            <button type="button" onClick={() => setUserType("publisher")}>
               publisher
             </button>
 
             <p>
-              <button type="submit">Sign in</button>
+              <button type="submit">Sign in as {userType}</button>
             </p>
           </form>
         )}
@@ -64,7 +64,7 @@ const SignInForm = ({ handleSignIn, signInError, loader }) => {
 SignInForm.propTypes = {
   handleSignIn: PropTypes.func,
   signInError: PropTypes.bool,
-  loader: PropTypes.bool
+  loader: PropTypes.bool,
 };
 
 export default SignInForm;

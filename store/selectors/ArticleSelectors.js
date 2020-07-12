@@ -22,6 +22,9 @@ const makeSelectArticleItem = () =>
 const makeSelectArticlesReview = () =>
   createSelector(selectArticleDomain, (substate) => substate.reviewArticles);
 
+const makeSelectPendingArticles = () =>
+  createSelector(selectArticleDomain, (substate) => substate.pendingArticles);
+
 export default makeSelectArticle;
 export {
   selectArticleDomain,
@@ -30,4 +33,5 @@ export {
   makeSelectMyArticles,
   makeSelectArticleItem,
   makeSelectArticlesReview,
+  makeSelectPendingArticles,
 };

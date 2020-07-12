@@ -9,6 +9,8 @@ import {
   ARTICLE_SET,
   ARTICLES_TO_REVIEW_GET,
   ARTICLES_TO_REVIEW_SEt,
+  ARTICLES_PENDING_GET,
+  ARTICLES_PENDING_SET,
 } from "../actionTypes/ArticleActionTypes";
 
 export const articlePublish = (payload) => ({
@@ -56,5 +58,14 @@ export const articlesReviewGet = () => ({
 
 export const articlesReviewSet = (payload) => ({
   type: ARTICLES_TO_REVIEW_SEt,
+  payload,
+});
+
+export const articlesPendingGet = () => ({
+  type: ARTICLES_PENDING_GET,
+});
+
+export const articlesPendingSet = (payload) => ({
+  type: ARTICLES_PENDING_SET,
   payload,
 });

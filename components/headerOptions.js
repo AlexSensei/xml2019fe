@@ -26,6 +26,13 @@ const HeaderOptions = ({ type }) => {
     </>
   );
 
+  const renderPublisherOptions = () => (
+    <>
+      <Link href="/">Works</Link>
+      <Link href="/pending-articles">View pending articles</Link>
+    </>
+  );
+
   const renderUserOptions = () => {
     switch (type) {
       case USER_TYPES.ANNONYMOUSE:
@@ -34,6 +41,8 @@ const HeaderOptions = ({ type }) => {
         return renderWriterOptions();
       case "reviewer":
         return renderReviwerOptions();
+      case "publisher":
+        return renderPublisherOptions();
       default:
         return <div></div>;
     }

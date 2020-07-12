@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+export default `<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
     targetNamespace="http://www.ftn.uns.ac.rs/naucniRad"
     xmlns:nr="http://www.ftn.uns.ac.rs/naucniRad">
@@ -81,3 +81,4 @@
     </xs:complexType>
     <xs:complexType name="referenca"/>
 </xs:schema>
+`;

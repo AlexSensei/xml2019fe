@@ -130,3 +130,36 @@ export const REVIEW_ARTICLES = [
     status: "declined",
   },
 ];
+
+export const PENDING_ARTICLES = [
+  {
+    id: "1",
+    article: "Pending First article",
+    status: "pending",
+  },
+  {
+    id: "2",
+    article: "Pending Second article",
+    status: "pending",
+  },
+  {
+    id: "3",
+    article: "Pending Third article",
+    status: "approved",
+  },
+  {
+    id: "4",
+    article: "Pending Fourth article",
+    status: "approved",
+  },
+  {
+    id: "5",
+    article: "Pending Fifth article",
+    status: "declined",
+  },
+  {
+    id: "6",
+    article: "Pending Sixth article",
+    status: "declined",
+  },
+];
